@@ -1,12 +1,13 @@
 {
-  "name": "history",
-  "version": "0.0.1",
-  "description": "history",
-  "main": "index.js",
-  "repository": "git@github.com:edonet/history.git",
-  "author": "edoner <edonet@163.com>",
-  "license": "MIT",
-  "dependencies": {
-    "history": "^4.7.2"
-  }
+    "name": "history",
+    "version": "0.0.1",
+    "description": "history",
+    "main": "index.js",
+    "repository": "git@github.com:edonet/history.git",
+    "author": "edoner <edonet@163.com>",
+    "license": "MIT",
+    "dependencies": {
+        "history": "^4.7.2",
+        "qs": "^6.5.2"
+    }
 }
