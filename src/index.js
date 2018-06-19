@@ -12,7 +12,7 @@
  * 加载依赖
  *****************************************
  */
-import createRouter from '../lib';
+import createHistory from '../lib';
 
 
 /**
@@ -20,11 +20,13 @@ import createRouter from '../lib';
  * 创建路由
  *****************************************
  */
-let router = createRouter();
+let history = createHistory();
 
 
-console.log(router.state);
+console.log(history.state);
 
-router.subscribe(() => {
-    console.log(router.state);
+history.subscribe(() => {
+    console.log(history.state);
 });
+
+window.$history = history;
