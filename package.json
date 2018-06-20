@@ -2,7 +2,7 @@
     "name": "history",
     "version": "0.0.1",
     "description": "history",
-    "main": "index.js",
+    "main": "lib/index.js",
     "repository": "git@github.com:edonet/history.git",
     "author": "edoner <edonet@163.com>",
     "license": "MIT",
