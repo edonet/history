@@ -2,12 +2,31 @@
     "name": "@arted/history",
     "version": "0.0.1",
     "description": "history",
+    "keywords": [
+        "hash",
+        "history"
+    ],
     "main": "lib/index.js",
-    "repository": "git@github.com:edonet/history.git",
-    "author": "edoner <edonet@163.com>",
-    "license": "MIT",
+    "directories": {
+        "lib": "lib",
+        "test": "test"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "homepage": "https://github.com/edonet/history#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/edonet/history.git"
+    },
+    "bugs": {
+        "url": "https://github.com/edonet/history/issues"
+    },
     "dependencies": {
         "history": "^4.7.2",
         "qs": "^6.5.2"
-    }
+    },
+    "devDependencies": {},
+    "author": "edoner <edonet@163.com>",
+    "license": "MIT"
 }
