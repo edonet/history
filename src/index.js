@@ -12,6 +12,8 @@
  * 加载依赖
  *****************************************
  */
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 import createHistory from '../lib';
 
 
@@ -23,10 +25,35 @@ import createHistory from '../lib';
 let history = createHistory();
 
 
-console.log(history.state);
 
-history.subscribe(() => {
-    console.log(history.state);
-});
+/**
+ *****************************************
+ * 创建应用
+ *****************************************
+ */
+class App extends Component {
 
-window.$history = history;
+    constructor(props, ...args) {
+        super(props, ...args);
+
+        this.state = { reoute: null };
+
+        history.subscribe(route => this.setState({ route }));
+    }
+
+    render() {
+        return (
+            <div>
+                <div>{ JSON.stringify(this.state.route) }</div>
+            </div>
+        );
+    }
+}
+
+
+/**
+ *****************************************
+ * 启动应用
+ *****************************************
+ */
+render(<App />, document.getElementById('app'));
