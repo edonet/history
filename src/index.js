@@ -50,7 +50,7 @@ class App extends Component {
         // 定义属性
         this.state = {
             block: false,
-            route: history.state || {}
+            route: history.state
         };
 
         // 监听路由变更
