@@ -25,6 +25,16 @@ import createHistory from '../lib';
 let history = createHistory();
 
 
+/**
+ *****************************************
+ * 监听启动完成
+ *****************************************
+ */
+history.ready(function (route) {
+    window.$router = history;
+    console.log('ready', route);
+});
+
 
 /**
  *****************************************
@@ -38,10 +48,16 @@ class App extends Component {
         super(props, ...args);
 
         // 定义属性
-        this.state = { reoute: history.state };
+        this.state = {
+            block: false,
+            route: history.state || {}
+        };
 
         // 监听路由变更
-        history.subscribe(route => this.setState({ route }));
+        this.unbind = [
+            history.subscribe(route => this.setState({ route })),
+            history.block(event => this.state.block && event.preventDefault())
+        ];
     }
 
     /* 渲染组件 */
@@ -57,6 +73,7 @@ class App extends Component {
                     <p>histories: { JSON.stringify(history.histories.map(route => route.url)) }</p>
                     <p>push: <input type="text" value={ this.state.route.url } onChange={ this.handleChange } /></p>
                     <p>replace: <input className="replace" type="text" value={ this.state.route.url } onChange={ this.handleChange } /></p>
+                    <p>block: <input type="checkbox" value={ this.state.block } name="block" onChange={ () => this.setState({ block: !this.state.block }) } /></p>
                 </div>
             );
         }
