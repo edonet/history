@@ -67,9 +67,9 @@ class App extends Component {
         if (this.state.route) {
             return (
                 <div>
-                    <p>url: { this.state.route.url }</p>
+                    <p>url: { history.url }</p>
                     <p>method: { history.method }</p>
-                    <p>query: { JSON.stringify(this.state.route.query) }</p>
+                    <p>query: { JSON.stringify(history.query) }</p>
                     <p>histories: { JSON.stringify(history.histories.map(route => route.url)) }</p>
                     <p>push: <input type="text" value={ this.state.route.url } onChange={ this.handleChange } /></p>
                     <p>replace: <input className="replace" type="text" value={ this.state.route.url } onChange={ this.handleChange } /></p>
