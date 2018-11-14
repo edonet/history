@@ -50,7 +50,8 @@ class App extends Component {
         // 定义属性
         this.state = {
             block: false,
-            route: history.state
+            route: history.state,
+            path: '/'
         };
 
         // 监听路由变更
@@ -74,6 +75,8 @@ class App extends Component {
                     <p>push: <input type="text" value={ this.state.route.url } onChange={ this.handleChange } /></p>
                     <p>replace: <input className="replace" type="text" value={ this.state.route.url } onChange={ this.handleChange } /></p>
                     <p>block: <input type="checkbox" value={ this.state.block } name="block" onChange={ () => this.setState({ block: !this.state.block }) } /></p>
+                    <p>match: <input value={ this.state.path } name="block" onChange={ event => this.setState({ path: event.target.value }) } /></p>
+                    <p>{ JSON.stringify(history.match(this.state.path)) }</p>
                 </div>
             );
         }
