@@ -51,6 +51,7 @@ class App extends Component {
         this.state = {
             block: false,
             route: history.state,
+            matched: null,
             path: '/'
         };
 
@@ -59,6 +60,9 @@ class App extends Component {
             history.subscribe(route => this.setState({ route })),
             history.block(event => this.state.block && event.preventDefault())
         ];
+
+        // 绑定回调
+        this.handleRouteChange = this.handleRouteChange.bind(this);
     }
 
     /* 渲染组件 */
@@ -75,8 +79,8 @@ class App extends Component {
                     <p>push: <input type="text" value={ this.state.route.url } onChange={ this.handleChange } /></p>
                     <p>replace: <input className="replace" type="text" value={ this.state.route.url } onChange={ this.handleChange } /></p>
                     <p>block: <input type="checkbox" value={ this.state.block } name="block" onChange={ () => this.setState({ block: !this.state.block }) } /></p>
-                    <p>match: <input value={ this.state.path } name="block" onChange={ event => this.setState({ path: event.target.value }) } /></p>
-                    <p>{ JSON.stringify(history.match(this.state.path)) }</p>
+                    <p>match: <input value={ this.state.path } name="block" onChange={ this.handleRouteChange } /></p>
+                    <p>{ JSON.stringify(this.state.matched) }</p>
                 </div>
             );
         }
@@ -93,6 +97,15 @@ class App extends Component {
         // 更新路径
         replace ? history.replace(el.value) : history.push(el.value);
     }
+
+    /* 监听路由变更 */
+    handleRouteChange(event) {
+        let path = event.target.value;
+
+        this.setState({ path });
+        this.$$unroute && this.$$unroute();
+        this.$$unroute = history.match(path, matched => this.setState({ matched }));
+    }
 }
 
 
@@ -102,3 +115,15 @@ class App extends Component {
  *****************************************
  */
 render(<App />, document.getElementById('app'));
+
+
+/**
+ *****************************************
+ * 启用接更新
+ *****************************************
+ */
+if (module.hot) {
+    module.hot.accept('../lib', () => {
+        render(<App />, document.getElementById('app'));
+    });
+}
