@@ -52,12 +52,13 @@ class App extends Component {
             block: false,
             route: history.state,
             matched: null,
-            path: '/'
+            path: '/',
+            href: ''
         };
 
         // 监听路由变更
         this.unbind = [
-            history.subscribe(route => this.setState({ route })),
+            history.subscribe(route => this.setState({ route, href: location.href })),
             history.block(event => this.state.block && event.preventDefault())
         ];
 
@@ -81,6 +82,7 @@ class App extends Component {
                     <p>block: <input type="checkbox" value={ this.state.block } name="block" onChange={ () => this.setState({ block: !this.state.block }) } /></p>
                     <p>match: <input value={ this.state.path } name="block" onChange={ this.handleRouteChange } /></p>
                     <p>{ JSON.stringify(this.state.matched) }</p>
+                    <textarea value={ this.state.href } />
                 </div>
             );
         }

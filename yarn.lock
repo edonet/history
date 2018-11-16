@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@arted/utils@^0.0.129":
-  version "0.0.129"
-  resolved "https://registry.yarnpkg.com/@arted/utils/-/utils-0.0.129.tgz#04897b1238f0f84d8a4cbd07d25cf63c691d5ab0"
-  integrity sha512-PvGv1Fn7n8IpWJTccDwrRjmcMn4VNNXHuPV+o95zjmp/ooownwf9zd+Cfw72fPTl4gd3W0GCNxP5zCphABMc7w==
+"@arted/utils@^0.0.130":
+  version "0.0.130"
+  resolved "https://registry.yarnpkg.com/@arted/utils/-/utils-0.0.130.tgz#aa154f6bd98bc19d61d5a63c4cbc701a4cd2cfb1"
+  integrity sha512-pU2TuL0JtmfcoSd5qhU1/L3CKYWRxeA3IIg5Qq+CVOVlqOjRzQ6T/BNFEBIO+38Npyhbgp2FG8lb80SxaazzLg==
 
 qs@^6.5.2:
   version "6.5.2"
