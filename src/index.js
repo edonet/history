@@ -14,15 +14,7 @@
  */
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import createHistory from '../lib';
-
-
-/**
- *****************************************
- * 创建路由
- *****************************************
- */
-let history = createHistory();
+import history from '../lib';
 
 
 /**
@@ -51,7 +43,7 @@ class App extends Component {
         this.state = {
             block: false,
             route: history.state,
-            matched: null,
+            matched: history.match('/'),
             path: '/',
             href: ''
         };
@@ -64,6 +56,8 @@ class App extends Component {
 
         // 绑定回调
         this.handleRouteChange = this.handleRouteChange.bind(this);
+        this.$$unroute = history.match(this.state.path, matched => this.setState({ matched }));
+
     }
 
     /* 渲染组件 */
@@ -82,7 +76,7 @@ class App extends Component {
                     <p>block: <input type="checkbox" value={ this.state.block } name="block" onChange={ () => this.setState({ block: !this.state.block }) } /></p>
                     <p>match: <input value={ this.state.path } name="block" onChange={ this.handleRouteChange } /></p>
                     <p>{ JSON.stringify(this.state.matched) }</p>
-                    <textarea value={ this.state.href } />
+                    <textarea value={ this.state.href } readOnly />
                 </div>
             );
         }
