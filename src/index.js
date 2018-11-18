@@ -23,7 +23,7 @@ import history from '../lib';
  *****************************************
  */
 history.ready(function (route) {
-    window.$router = history;
+    window.$$history = history;
     console.log('ready', route);
 });
 
