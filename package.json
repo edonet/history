@@ -23,8 +23,8 @@
         "url": "https://github.com/edonet/history/issues"
     },
     "dependencies": {
-        "@arted/utils": "^0.0.131",
-        "qs": "^6.5.2"
+        "qs": "^6.5.2",
+        "utify": "^0.0.101"
     },
     "devDependencies": {},
     "author": "edoner <edonet@163.com>",
