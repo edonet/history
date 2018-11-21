@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "qs": "^6.5.2",
-        "utify": "^0.0.101"
+        "xtil": "^0.0.104"
     },
     "devDependencies": {},
     "author": "edoner <edonet@163.com>",
